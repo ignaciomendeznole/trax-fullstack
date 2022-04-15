@@ -7,11 +7,11 @@ import { User } from '@prisma/client';
 import prisma from '../../lib/prisma';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const salt = bcrypt.genSaltSync();
   const { email, password, name } = req.body;
 
   let user: User;
   try {
+    const salt = bcrypt.genSaltSync();
     user = await prisma.user.create({
       data: {
         name,
