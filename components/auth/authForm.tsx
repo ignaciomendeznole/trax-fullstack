@@ -7,7 +7,7 @@ import { useSWRConfig } from 'swr';
 import { auth as authMutation } from '../../lib/mutations';
 
 interface Props {
-  mode: 'signin' | 'signup';
+  mode: 'signIn' | 'signup';
 }
 
 const AuthForm: React.FC<React.PropsWithChildren<Props>> = ({ mode }) => {
@@ -73,7 +73,7 @@ const AuthForm: React.FC<React.PropsWithChildren<Props>> = ({ mode }) => {
                   },
                 }}
               >
-                {mode === 'signin' ? 'Sign In' : 'Sign Up'}
+                {mode === 'signIn' ? 'Sign In' : 'Sign Up'}
               </Button>
             </Center>
           </form>
