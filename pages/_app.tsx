@@ -1,5 +1,8 @@
 import { ThemeProvider, extendTheme } from '@chakra-ui/react';
+import { StoreProvider } from 'easy-peasy';
 import { Layout } from '../components/layout';
+import 'reset-css';
+import store from '../store';
 import '../styles/globals.css';
 
 const theme = extendTheme({
@@ -33,13 +36,15 @@ const theme = extendTheme({
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
-      {Component.authPage ? (
-        <Component {...pageProps} />
-      ) : (
-        <Layout>
+      <StoreProvider store={store}>
+        {Component.authPage ? (
           <Component {...pageProps} />
-        </Layout>
-      )}
+        ) : (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        )}
+      </StoreProvider>
     </ThemeProvider>
   );
 };
