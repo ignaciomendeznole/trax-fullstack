@@ -1,6 +1,6 @@
 import fetcher from './fetcher';
 
 export const auth = (
-  mode: 'signIn' | 'signUp' | 'signOut',
+  mode: 'signin' | 'signup' | 'signout',
   body: { email: string; password: string }
 ) => fetcher(`/${mode}`, body);
